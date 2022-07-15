@@ -1,4 +1,5 @@
-FROM circleci/python:3.6.4
-ADD . ./
-RUN sudo pip install  requirements.txt
-RUN sudo jupyter-nbconvert --execute ./dz1.ipynb
+FROM python:bullseye
+COPY requirements.txt ./
+COPY dz1.ipynb ./
+RUN pip install -r requirements.txt
+RUN jupyter-nbconvert --execute ./dz1.ipynb 
